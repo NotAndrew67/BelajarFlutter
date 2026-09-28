@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CostumButton extends StatelessWidget {
-  final String text;
+  final String label;
   final VoidCallback onPressed;
   final Color color;
+
   const CostumButton({
     super.key,
-    required this.text,
+    required this.label,
     required this.onPressed,
-    required this.color,
+    this.color = Colors.blue,
   });
 
   @override
   Widget build(BuildContext context) {
-    return  ElevatedButton(
-      onPressed: onPressed,
+    return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
+        foregroundColor: Colors.white,
       ),
-      child: Text(text),
+      onPressed: onPressed,
+      child: Text(label),
     );
   }
 }

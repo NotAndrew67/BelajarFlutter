@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:new_project/components/costum_button.dart';
@@ -34,22 +33,22 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             margin: EdgeInsets.all(16),
             child: CostumTextfield(
-              hint: "input username",
-              txtcCntroller: txtUsername,
+              myHint: "input username",
+              txtController: txtUsername,
             ),
           ),
 
           Container(
             margin: EdgeInsets.all(16),
             child: CostumTextfield(
-              hint: "input password",
-              txtcCntroller: txtPassword,
+              myHint: "input password",
+              txtController: txtPassword,
             ),
           ),
 
           SizedBox(height: 16),
           CostumButton(
-            text: "Login",
+            label: "Login",
             onPressed: () {
               setState(() {
                 String username = txtUsername.text.toString();
