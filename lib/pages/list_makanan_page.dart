@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/controllers/list_makanan_controller.dart';
+import 'package:new_project/routes.dart';
 import 'package:get/get.dart';
 
 class ListMakananPage extends StatelessWidget {
@@ -10,9 +11,7 @@ class ListMakananPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("List Makanan"),
-      ),
+      appBar: AppBar(title: const Text("List Makanan")),
       body: Container(
         margin: const EdgeInsets.all(10),
         child: ListView.builder(
@@ -23,7 +22,7 @@ class ListMakananPage extends StatelessWidget {
             return InkWell(
               onTap: () {
                 Get.toNamed(
-                  "/detailMakanan",
+                  Routes.detailMakanan,
                   arguments: makanan,
                 );
               },
@@ -36,9 +35,7 @@ class ListMakananPage extends StatelessWidget {
                   "Rp ${makanan.harga}",
                   style: const TextStyle(fontSize: 15),
                 ),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                ),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded),
               ),
             );
           },

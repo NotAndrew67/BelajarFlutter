@@ -14,6 +14,6 @@ class Routes {
     GetPage(name: registration, page: () => RegistrationPage()),
     GetPage(name: confirmRegistration, page: () => ConfirmRegistrationPage()),
     GetPage(name: listMakanan, page: () => ListMakananPage()),
-    GetPage(name: detailMakanan, page: () => DetailListMakananPage()), // ← nama class yang bener
+    GetPage(name: detailMakanan, page: () => DetailListMakananPage()),
   ];
 }
