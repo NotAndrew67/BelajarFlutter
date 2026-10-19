@@ -3,7 +3,6 @@ import 'package:new_project/models/makanan_models.dart'; // ← makanan_models
 
 class ListMakananController extends GetxController {
   List<MakananModels> listMakanan = [
-    // ← MakananModels
     MakananModels(
       namaMakanan: "Nasi Goreng",
       harga: "15000",
