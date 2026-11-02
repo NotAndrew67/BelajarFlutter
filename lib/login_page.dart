@@ -1,70 +1,37 @@
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:new_project/components/costum_button.dart';
 import 'package:new_project/components/costum_text.dart';
 import 'package:new_project/components/costum_textfield.dart';
+import 'package:new_project/controllers/login_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController txtUsername = TextEditingController();
-  TextEditingController txtPassword = TextEditingController();
-  String statusLogin = "";
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login Page")),
+      appBar: AppBar(title: const Text("Login Page")),
       body: Column(
         children: [
-          CostumText(
-            text: statusLogin.isEmpty
-                ? "Welcome Boskuu"
-                : "Welcome Boskuu, $statusLogin",
-            fontSize: 24,
-            color: Colors.blue,
-          ),
-
+          const CostumText(text: "Welcome Boskuu", fontSize: 24, color: Colors.blue),
           Container(
-            margin: EdgeInsets.all(16),
-            child: CostumTextfield(
-              myHint: "input username",
-              txtController: txtUsername,
-            ),
+            margin: const EdgeInsets.all(16),
+            child: CostumTextfield(myHint: "input username", txtController: controller.txtUsername),
           ),
-
           Container(
-            margin: EdgeInsets.all(16),
-            child: CostumTextfield(
-              myHint: "input password",
-              txtController: txtPassword,
-            ),
+            margin: const EdgeInsets.all(16),
+            child: CostumTextfield(myHint: "input password", txtController: controller.txtPassword, obscureText: true),
           ),
-
-          SizedBox(height: 16),
-          CostumButton(
-            label: "Login",
-            onPressed: () {
-              setState(() {
-                String username = txtUsername.text.toString();
-                String password = txtPassword.text.toString();
-                if (username == "admin" && password == "admin") {
-                  statusLogin = "admin";
-                  print("Sukses Login");
-                } else {
-                  statusLogin = "failed";
-                  print("Gagal Login");
-                }
-              });
-            },
-            color: Colors.blue,
+          const SizedBox(height: 16),
+          Obx(
+            () => controller.isLoading.value
+                ? const CircularProgressIndicator()
+                : CostumButton(label: "Login", onPressed: () => controller.login(), color: Colors.blue),
           ),
-          SizedBox(height: 16),
         ],
       ),
     );

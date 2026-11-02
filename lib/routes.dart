@@ -3,6 +3,7 @@ import 'package:new_project/pages/registration_page.dart';
 import 'package:new_project/pages/list_makanan_page.dart';
 import 'package:new_project/pages/detail_list_makanan.dart';
 import 'package:new_project/pages/main_menu.dart';
+import 'package:new_project/login_page.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -11,6 +12,7 @@ class Routes {
   static const String listMakanan = "/listMakanan";
   static const String detailMakanan = "/detailMakanan";
   static const String main_menu = "/main_menu";
+  static const String login = "/login";
 
   static final myPages = [  
     GetPage(name: registration, page: () => RegistrationPage()),
@@ -18,5 +20,6 @@ class Routes {
     GetPage(name: listMakanan, page: () => ListMakananPage()),
     GetPage(name: detailMakanan, page: () => DetailListMakananPage()),
     GetPage(name: main_menu, page: () => MainMenuPage()),
+     GetPage(name: login, page: () => LoginPage()),
   ];
 }

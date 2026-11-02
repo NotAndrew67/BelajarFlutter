@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/components/costum_drawer.dart';
 import 'package:new_project/controllers/home_controller.dart';
 import 'package:new_project/routes.dart';
 
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
+      drawer: const CostumDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

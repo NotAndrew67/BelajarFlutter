@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_project/components/costum_drawer.dart';
 import 'package:new_project/controllers/main_menu_controller.dart';
-import 'package:new_project/menu/history_page.dart';
-import 'package:new_project/menu/home_page.dart';
 import 'package:get/get.dart';
 
 class MainMenuPage extends StatelessWidget {
@@ -13,6 +12,7 @@ class MainMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        drawer: const CostumDrawer(),
         body: IndexedStack(
           index: mainMenuController.selectedIndex.value,
           children: mainMenuController.listPages,
@@ -20,7 +20,7 @@ class MainMenuPage extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           onTap: mainMenuController.changePage,
           currentIndex: mainMenuController.selectedIndex.value,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
               label: "Home",

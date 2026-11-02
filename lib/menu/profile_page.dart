@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/components/costum_drawer.dart';
 import 'package:new_project/controllers/profile_controller.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -20,6 +21,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
       ),
+      drawer: const CostumDrawer(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
