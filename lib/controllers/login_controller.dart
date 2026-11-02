@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:new_project/models/login_models.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_project/routes.dart';
 
 class LoginController extends GetxController {
@@ -35,10 +36,14 @@ class LoginController extends GetxController {
       isLoading.value = false;
       final data = LoginModels.fromJson(jsonDecode(response.body));
 
-      if (response.statusCode == 200 && data.status == true) {
+     if (response.statusCode == 200 && data.status == true) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', data.token);
+        await prefs.setString('username', username);
         Get.snackbar("Berhasil", data.message,
             backgroundColor: Colors.green, colorText: Colors.white,
             snackPosition: SnackPosition.BOTTOM);
+            
         Get.offAllNamed(Routes.main_menu);
       } else {
         Get.snackbar("Gagal", data.message,

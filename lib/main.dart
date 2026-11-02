@@ -1,22 +1,30 @@
-import 'package:new_project/calculator_page.dart';
-import 'package:new_project/login_page.dart';
-import 'package:new_project/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:new_project/routes.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+  final String? token = prefs.getString('token');
+
+  final String initialRoute = (token != null && token.isNotEmpty) 
+      ? Routes.main_menu 
+      : Routes.login;
+
+  runApp(MyApp(initialRoute: initialRoute));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String initialRoute;
+  const MyApp({super.key, required this.initialRoute});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "My App",
-      initialRoute: Routes.login,
+      initialRoute: initialRoute,
       getPages: Routes.myPages,
     );
   }
