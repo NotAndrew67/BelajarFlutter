@@ -10,7 +10,7 @@ void main() async {
   final String? token = prefs.getString('token');
 
   final String initialRoute = (token != null && token.isNotEmpty) 
-      ? Routes.main_menu 
+      ? Routes.mainmenu 
       : Routes.login;
 
   runApp(MyApp(initialRoute: initialRoute));

@@ -11,7 +11,7 @@ class Routes {
   static const String confirmRegistration = "/confirmRegistration";
   static const String listMakanan = "/listMakanan";
   static const String detailMakanan = "/detailMakanan";
-  static const String main_menu = "/main_menu";
+  static const String mainmenu = "/mainmenu";
   static const String login = "/login";
 
   static final myPages = [  
@@ -19,7 +19,7 @@ class Routes {
     GetPage(name: confirmRegistration, page: () => ConfirmRegistrationPage()),
     GetPage(name: listMakanan, page: () => ListMakananPage()),
     GetPage(name: detailMakanan, page: () => DetailListMakananPage()),
-    GetPage(name: main_menu, page: () => MainMenuPage()),
+    GetPage(name: mainmenu, page: () => MainMenuPage()),
      GetPage(name: login, page: () => LoginPage()),
   ];
 }

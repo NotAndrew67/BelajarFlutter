@@ -13,6 +13,8 @@ class LoginController extends GetxController {
 
   final String apiUrl = "https://mediadwi.com/api/latihan/login";
 
+  var loginModel = Rxn<LoginModels>();
+
   Future<void> login() async {
     final username = txtUsername.text.trim();
     final password = txtPassword.text.trim();
@@ -34,19 +36,19 @@ class LoginController extends GetxController {
       );
 
       isLoading.value = false;
-      final data = LoginModels.fromJson(jsonDecode(response.body));
+       loginModel.value = LoginModels.fromJson(jsonDecode(response.body));
 
-     if (response.statusCode == 200 && data.status == true) {
+     if (loginModel.value?.status == true) {
         final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('token', data.token);
+         await prefs.setString('token', loginModel.value!.token);
         await prefs.setString('username', username);
-        Get.snackbar("Berhasil", data.message,
+        Get.snackbar("Berhasil", loginModel.value!.message,
             backgroundColor: Colors.green, colorText: Colors.white,
-            snackPosition: SnackPosition.BOTTOM);
-            
-        Get.offAllNamed(Routes.main_menu);
+            snackPosition: SnackPosition.BOTTOM);    
+        Get.offAllNamed(Routes.mainmenu);
+
       } else {
-        Get.snackbar("Gagal", data.message,
+        Get.snackbar("Gagal", loginModel.value!.message,
             backgroundColor: Colors.red, colorText: Colors.white,
             snackPosition: SnackPosition.BOTTOM);
       }

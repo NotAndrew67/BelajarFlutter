@@ -30,6 +30,28 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 16),
 
             _buildStatsCard(),
+            const SizedBox(height: 24),
+
+            // Tombol Logout
+            SizedBox(
+              width: double.infinity,
+              height: 48,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.redAccent,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () => controller.logout(),
+                icon: const Icon(Icons.logout_rounded),
+                label: const Text(
+                  "Logout",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ],
         ),
       ),
