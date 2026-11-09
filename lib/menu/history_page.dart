@@ -10,7 +10,7 @@ class HistoryPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("History Page"),
       ),
-      drawer: const CostumDrawer(),
+      endDrawer: const CostumDrawer(),
       body: const Center(child: Text("ini History page")),
     );
   }

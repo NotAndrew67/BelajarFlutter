@@ -12,7 +12,7 @@ class MainMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        drawer: const CostumDrawer(),
+        endDrawer: const CostumDrawer(),
         body: IndexedStack(
           index: mainMenuController.selectedIndex.value,
           children: mainMenuController.listPages,

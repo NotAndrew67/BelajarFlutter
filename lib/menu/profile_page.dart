@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
       ),
-      drawer: const CostumDrawer(),
+      endDrawer: const CostumDrawer(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
@@ -32,7 +32,6 @@ class ProfilePage extends StatelessWidget {
             _buildStatsCard(),
             const SizedBox(height: 24),
 
-            // Tombol Logout
             SizedBox(
               width: double.infinity,
               height: 48,
